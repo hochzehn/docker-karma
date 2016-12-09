@@ -20,7 +20,18 @@ module.exports = function(config) {
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
+
+        preprocessors: {
+            'lib/**/*.js': 'coverage'
+        },
+
+        coverageReporter: {
+            reporters: [
+                {type: 'text-summary'},
+                {type: 'clover', dir: 'coverage', subdir: '.', file: 'clover.xml'}
+            ]
+        },
 
         // web server port
         port: 9876,
