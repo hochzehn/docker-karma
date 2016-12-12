@@ -40,7 +40,7 @@ This container supports code coverage. Apply in `karma.conf.js` like this:
         ]
     },
 
-You probably want to ignore `/coverage` from your CVS as well.
+You probably want to ignore `/test-reports` from your CVS as well.
 
 ## Development
 
