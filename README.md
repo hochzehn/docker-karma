@@ -32,7 +32,7 @@ You probably want to ignore `/coverage` from your CVS as well.
 
 ### Build
 
-    docker build -rm -t karma-jasmine-phantomjs .
+    docker build -t karma-jasmine-phantomjs .
 
 ### Run
 
