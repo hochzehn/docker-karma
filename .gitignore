@@ -2,5 +2,5 @@
 /.idea
 /*.iml
 
-# Code coverage reports
-/coverage
+# Generated reports
+/test-reports

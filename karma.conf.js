@@ -20,7 +20,13 @@ module.exports = function(config) {
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-        reporters: ['progress', 'coverage'],
+        reporters: ['progress', 'coverage', 'junit'],
+
+        junitReporter: {
+            outputDir: 'test-reports/',
+            outputFile: 'junit.xml',
+            useBrowserName: false
+        },
 
         preprocessors: {
             'lib/**/*.js': 'coverage'
@@ -28,8 +34,9 @@ module.exports = function(config) {
 
         coverageReporter: {
             reporters: [
-                {type: 'text-summary'},
-                {type: 'clover', dir: 'coverage', subdir: '.', file: 'clover.xml'}
+                { type: 'text-summary' },
+                { type: 'html', dir: 'test-reports' },
+                { type: 'clover', dir: 'test-reports', subdir: '.', file: 'clover.xml' }
             ]
         },
 

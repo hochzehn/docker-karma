@@ -8,11 +8,25 @@ Run [Jasmine][4] tests using [Karma][2] and [PhantomJS][3] in a [Docker][1] cont
 
 Run this from your project root directory, or wherever your `karma.conf.js` is located.
 
-### Code coverage
+### Plugins / Reporter
+
+#### junit
+
+This container supports junit report generation. Apply in `karma.conf.js` like this:
+
+    reporters: ['junit'],
+
+    junitReporter: {
+        outputDir: 'test-reports/',
+        outputFile: 'junit.xml',
+        useBrowserName: false
+    }
+
+#### Coverage
 
 This container supports code coverage. Apply in `karma.conf.js` like this:
 
-    reporters: ['progress', 'coverage'],
+    reporters: ['coverage'],
 
     preprocessors: {
         'path/to/src/**.js': 'coverage'
@@ -20,9 +34,9 @@ This container supports code coverage. Apply in `karma.conf.js` like this:
 
     coverageReporter: {
         reporters: [
-            {type: 'text-summary'},
-            {type: 'html'},
-            {type: 'clover', dir: 'coverage', subdir: '.', file: 'clover.xml'}
+            { type: 'text-summary' },
+            { type: 'html', dir: 'test-reports' },
+            { type: 'clover', dir: 'test-reports', subdir: '.', file: 'clover.xml' }
         ]
     },
 
